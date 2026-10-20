@@ -1,0 +1,747 @@
+body {
+  background-image: url(https://i.pinimg.com/1200x/7f/a2/f6/7fa2f6812d9fa9428f9ad3bb6fa9c564.jpg);
+  background-size: cover;       
+  background-position: center;   
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
+  min-height: 100vh;             
+  margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.2rem;
+    background-color: rgba(15, 15, 15, 0.88);
+    border-bottom: 1px solid #b99a56;
+}
+
+nav a {
+    color: #e4c778;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+header {
+    max-width: 1000px;
+    margin: 5rem auto 4rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(12, 12, 12, 0.72);
+    border-top: 2px solid #b99a56;
+    border-bottom: 2px solid #b99a56;
+}
+
+header h1 {
+    color: #e4c778;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+}
+
+header p {
+    color: #f0ece2;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+article {
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background-color: rgba(12, 12, 12, 0.78);
+    border: 1px solid rgba(228, 199, 120, 0.45);
+}
+
+article h2 {
+    color: #e4c778;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    line-height: 1.4;
+    margin-bottom: 3rem;
+}
+
+article h3 {
+    color: #e4c778;
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+article p {
+    color: #f0ece2;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+}
+
+article img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    display: inline-block;
+    margin: 0.5rem;
+    border: 1px solid #b99a56;
+    border-radius: 4px;
+}
+
+article img:hover {
+    transform: scale(1.03);
+}
+
+footer {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background-color: rgba(10, 10, 10, 0.92);
+    border-top: 2px solid #b99a56;
+}
+
+footer h4 {
+    color: #e4c778;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+footer p {
+    color: #c5c0b5;
+    font-size: 0.85rem;
+}
+
+.poems-section {
+    max-width: 1250px;
+    margin: 3rem auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #f0ece2;
+    background: rgba(10, 10, 10, 0.86);
+    border-top: 1px solid #b99a56;
+    border-bottom: 1px solid #b99a56;
+}
+
+.section-title {
+    color: #e4c778;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+}
+
+.swipe-instruction {
+    text-align: center;
+    color: #d6c9a7;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.swipe-instruction span {
+    display: block;
+    color: #e4c778;
+    margin-top: 0.35rem;
+}
+
+.poems-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.75rem 0 1.5rem;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b99a56 #24211b;
+}
+
+.poem-panel {
+    flex: 0 0 88%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 1.5rem;
+
+    background: linear-gradient(
+        145deg,
+        rgba(32, 29, 24, 0.98),
+        rgba(13, 13, 13, 0.98)
+    );
+
+    border: 1px solid #b99a56;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.poem-panel h3 {
+    color: #e4c778;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+
+    margin: 0 0 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(185, 154, 86, 0.45);
+}
+
+.poem-text {
+    margin: 0;
+    padding: 1.5rem;
+
+    color: #f0ece2;
+    background: rgba(8, 8, 8, 0.45);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.9;
+
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+
+    border-left: 2px solid #b99a56;
+}
+
+.poems-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.poems-grid::-webkit-scrollbar-track {
+    background: #24211b;
+    border-radius: 10px;
+}
+
+.poems-grid::-webkit-scrollbar-thumb {
+    background: #b99a56;
+    border-radius: 10px;
+}
+
+.poems-closing {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    color: #f0ece2;
+    text-align: center;
+
+    background: rgba(10, 10, 10, 0.86);
+    border-top: 1px solid #b99a56;
+    border-bottom: 1px solid #b99a56;
+}
+
+.poems-closing h3 {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.poems-closing p {
+    line-height: 1.9;
+}
+
+@media (max-width: 600px) {
+    .poems-section {
+        margin: 1.5rem 0.5rem;
+        padding: 1rem 0.75rem;
+    }
+
+    .poem-panel {
+        flex-basis: 94%;
+        padding: 1rem;
+    }
+
+    .poem-text {
+        padding: 1rem;
+        font-size: 1.05rem;
+        line-height: 1.85;
+    }
+
+    .poems-closing {
+        margin: 2rem 0.5rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+.spokenword-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3em 1.5em;
+    box-sizing: border-box;
+}
+
+.spokenword-section .section-title {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 1.5px;
+    max-width: 100%;
+    margin: 0 auto 1.5em;
+    padding: 0 0.5em;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
+}
+
+.spokenword-section .swipe-instruction {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    margin: 0 auto 2em;
+    padding: 1.2em;
+    background: rgba(20, 17, 14, 0.85);
+    border-top: 1px solid #b99a56;
+    border-bottom: 1px solid #b99a56;
+    box-sizing: border-box;
+}
+
+.spokenword-section .swipe-instruction span {
+    display: block;
+    color: #eee6d8;
+    font-size: 0.85rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin-top: 0.5em;
+}
+
+.spokenword-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 1.5em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0 2em;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #b99a56 rgba(255, 255, 255, 0.08);
+}
+
+.spokenword-panel {
+    flex: 0 0 85%;
+    max-width: 850px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: clamp(1.2em, 3vw, 2.5em);
+    background: rgba(20, 17, 14, 0.94);
+    border: 1px solid #b99a56;
+    border-left: 5px solid #e4c778;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    color: #f0e8d8;
+    scroll-snap-align: start;
+}
+
+
+.spokenword-panel h3 {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin: 0 0 1.5em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid rgba(228, 199, 120, 0.4);
+    overflow-wrap: anywhere;
+}
+
+
+.spokenword-text {
+    color: #eee6d8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
+.spokenword-text p {
+    margin: 0 0 1.8em;
+    text-align: left;
+}
+
+.spokenword-text p:last-child {
+    margin-bottom: 0;
+}
+
+.spokenword-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.spokenword-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+}
+
+.spokenword-grid::-webkit-scrollbar-thumb {
+    background: #b99a56;
+    border-radius: 10px;
+}
+
+.spokenword-grid::-webkit-scrollbar-thumb:hover {
+    background: #e4c778;
+}
+
+.spokenword-section + section {
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 2.5em 1.5em;
+    text-align: center;
+    color: #eee6d8;
+    background: rgba(20, 17, 14, 0.94);
+    border: 1px solid #b99a56;
+    border-top: 4px solid #e4c778;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.spokenword-section + section h3 {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: 2px;
+    margin: 0 0 1em;
+}
+
+.spokenword-section + section p {
+    color: #eee6d8;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+main.spokenword-section h2.section-title {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 1.5em;
+    padding: 0.35em 0.7em;
+
+    color: #f3d58a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+
+    background: rgba(20, 17, 14, 0.82);
+    border-bottom: 2px solid #b99a56;
+    border-radius: 4px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 600px) {
+    .spokenword-section {
+        padding: 2em 1em;
+    }
+
+    .spokenword-section .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    .spokenword-section .swipe-instruction {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        padding: 1em 0.7em;
+    }
+
+    .spokenword-section .swipe-instruction span {
+        font-size: 0.8rem;
+    }
+
+    .spokenword-panel {
+        flex-basis: 94%;
+        padding: 1.2em;
+    }
+
+    .spokenword-panel h3 {
+        letter-spacing: 0.5px;
+    }
+
+    .spokenword-text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .spokenword-section + section {
+        margin: 2em 1em;
+        padding: 2em 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    main.spokenword-section h2.section-title {
+        width: 100%;
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+        padding: 0.6em 0.4em;
+    }
+}
+
+.monologue-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3em 1.5em;
+    box-sizing: border-box;
+}
+
+.monologue-section .section-title {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    margin: 0 auto 1.5em;
+    padding: 0.6em;
+    background: rgba(20, 17, 14, 0.9);
+    border-bottom: 2px solid #b99a56;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+}
+
+.monologue-section .swipe-instruction {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    margin: 0 auto 2em;
+    padding: 1.2em;
+    background: rgba(20, 17, 14, 0.88);
+    border-top: 1px solid #b99a56;
+    border-bottom: 1px solid #b99a56;
+    box-sizing: border-box;
+}
+
+.monologue-section .swipe-instruction span {
+    display: block;
+    color: #eee6d8;
+    font-size: 0.85rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin-top: 0.5em;
+}
+
+.monologue-grid {
+    display: flex;
+    gap: 1.5em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0 2em;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b99a56 rgba(255, 255, 255, 0.08);
+}
+
+.monologue-document {
+    flex: 0 0 85%;
+    width: 85%;
+    max-width: 850px;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: clamp(1.2em, 3vw, 2em);
+    color: #eee6d8;
+    background: rgba(20, 17, 14, 0.94);
+
+    border: 1px solid #b99a56;
+    border-left: 5px solid #e4c778;
+    border-radius: 5px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+    scroll-snap-align: start;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.monologue-document:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.monologue-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.monologue-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+}
+
+.monologue-grid::-webkit-scrollbar-thumb {
+    background: #b99a56;
+    border-radius: 10px;
+}
+
+.monologue-grid::-webkit-scrollbar-thumb:hover {
+    background: #e4c778;
+}
+
+.monologue-document h3 {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+    margin: 0 0 1.5em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid rgba(228, 199, 120, 0.4);
+}
+
+
+.monologue-text {
+    color: #eee6d8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.monologue-text p {
+    margin: 0 0 1.6em;
+    text-align: left;
+}
+
+.monologue-text p:last-child {
+    margin-bottom: 0;
+}
+
+.monologue-closing {
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 2.5em 1.5em;
+    text-align: center;
+    color: #eee6d8;
+    background: rgba(20, 17, 14, 0.94);
+    border: 1px solid #b99a56;
+    border-top: 4px solid #e4c778;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.monologue-closing h3 {
+    color: #e4c778;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: 2px;
+    margin: 0 0 1em;
+}
+
+.monologue-closing p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #eee6d8;
+    line-height: 1.9;
+}
+
+@media (max-width: 850px) {
+    .monologue-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .monologue-section {
+        padding: 2em 1em;
+    }
+
+    .monologue-section .section-title {
+        font-size: 1.45rem;
+        letter-spacing: 0.5px;
+    }
+
+    .monologue-section .swipe-instruction {
+        font-size: 0.9rem;
+        letter-spacing: 0.8px;
+        padding: 1em 0.7em;
+    }
+
+    .monologue-section .swipe-instruction span {
+        font-size: 0.8rem;
+    }
+
+    .monologue-grid {
+        gap: 1.5em;
+    }
+
+    .monologue-document {
+        padding: 1.2em;
+    }
+
+    .monologue-document h3 {
+        letter-spacing: 0.5px;
+    }
+
+    .monologue-text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .monologue-closing {
+        margin: 2em 1em;
+        padding: 2em 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .monologue-document {
+        flex-basis: 94%;
+        width: 94%;
+        padding: 1.2em;
+    }
+}
+
+
+
+
+
+
+
+
+
